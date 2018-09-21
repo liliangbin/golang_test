@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	"golang_test/web/model"
+	model "golang_test/web/model"
 	"github.com/jinzhu/gorm"
 )
 
@@ -23,6 +23,6 @@ func Add(user *model.User) string {
 	defer db.Close()
 	db.AutoMigrate(&model.User{})
 	db.Create(&user)
-	fmt.Println("shuju tianjia hceng")
+	fmt.Println("shuju tianjia eng")
 	return user.Info
 }
