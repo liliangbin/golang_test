@@ -7,12 +7,7 @@ import (
 	"log"
 )
 
-type Person struct {
-	UserId   int    `db:"user_id"`
-	Username string `db:"username"`
-	Sex      string `db:"sex"`
-	Email    string `db:"email"`
-}
+
 
 type sql_user struct {
 	id       int    `db:"id"`
@@ -43,10 +38,10 @@ func main() {
 		在这个的循环中，他会给我们俩个值，一个用于头的分析，一个是具体的值，*/
 	}
 
-	res, err := db.Exec("INSERT into sql_user(username,password,info) values (?,?,?)", username, password, info)
-
+	res, err := db.Exec("INSERT into sql_user(username,password,info) values (?,?,?)",query )
 	id, err := res.LastInsertId()
 	log.Println(id)
+
 
 	db.QueryRow("select username,password,info from sql_user where id=?", 1).Scan(&username, &password, &info)
 
@@ -58,9 +53,9 @@ func main() {
 			fmt.Println("查询数据出错")
 		}
 
-
 		fmt.Println(username)
 	}
+
 
 	//对应这个地方，我们可以有一个封装。封装成一个函数，最后直接调用就行。
 }

@@ -40,6 +40,7 @@ func StartServer() {
 	))
 
 
+
 	http.HandleFunc("/login", LoginHandler)
 
 	log.Println("Now listening...")
@@ -49,6 +50,7 @@ func StartServer() {
 func main() {
 
 	StartServer()
+
 }
 
 func ProtectHander(w http.ResponseWriter, r *http.Request) {
@@ -153,3 +155,4 @@ func JsonResponse(response interface{}, w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(json)
 }
+

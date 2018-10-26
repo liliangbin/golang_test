@@ -1,7 +1,7 @@
 package model
 
 type User struct {
-	ID   int `grom:"primary_key"`
+	ID   int `gorm:"primary_key"`
 	Name string
 	Info string
 }

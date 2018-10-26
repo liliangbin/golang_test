@@ -2,7 +2,7 @@ package service
 
 import (
 	"fmt"
-	model "golang_test/web/model"
+	 "golang_test/web/model"
 	"github.com/jinzhu/gorm"
 )
 
